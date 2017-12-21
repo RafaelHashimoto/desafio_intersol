@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    model:
+      users:
+        one: Usuário
+        other: Usuário
+    attributes:
+      user:
+        password: Senha
+        email: Email
+        first_name: Nome
+        last_name: Sobrenome
+        password_confirmation: Confirmação de senha
