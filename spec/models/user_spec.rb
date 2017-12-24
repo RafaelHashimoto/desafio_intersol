@@ -9,6 +9,10 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
+    it "returns user full name" do
+      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+    end
+
   end
 
   context "Failure" do
@@ -34,7 +38,7 @@ RSpec.describe User, type: :model do
     end 
 
     it "is invalid if last name is too long" do
-      user.last_name = 'a'*25
+      user.last_name = 'a'*30
       expect(user).to be_invalid
     end        
 
