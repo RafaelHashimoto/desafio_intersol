@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html
+  head
+    title MyBank
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    // Adjustment to run specific javascript per view
+    = tag :meta, name: :psjm, action: action_name, controller: controller_name
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|Ropa+Sans" rel="stylesheet"
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    
+    //Responsive layout
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    
+  = content_tag :body, data: { action: action_name, controller: controller_name}, class: "users" do
+    = render "users/shared/sidenav"
+    = render "users/shared/navbar"
+    .user_container
+      = yield
+

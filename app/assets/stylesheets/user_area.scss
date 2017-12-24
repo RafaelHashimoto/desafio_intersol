@@ -1,0 +1,24 @@
+@import 'variables';
+.users{
+  font-family: 'Ropa Sans', sans-serif;
+  background-color:#D6D6C5;
+}
+.user_container{
+  padding-left:230px;
+  margin:20px 17px;
+  height:auto;
+  .title{
+    color:$primary-color;
+  }
+  .user-card{
+    padding:10px 20px;
+  }
+  .card-title{
+    margin-top:5px;
+  }
+  .card-data{
+    margin:10px;
+    font-size:1.3rem;
+  }
+}
+

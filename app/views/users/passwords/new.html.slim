@@ -1,0 +1,16 @@
+.container.form-container
+  .card.form-card
+    .form-wrapper
+      h3.center Recuperar senha
+
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+
+        .field
+          = form_group_for f, :email, label: false  do
+            =f.label :email, class:"form-label"
+            =f.email_field :email, autofocus: true, class:"form-field"
+
+        .actions
+          = f.submit "Confirmar", class:"btn green-btn green-btn-center btn-full-width"
+        .form-links
+          = render "users/shared/links"

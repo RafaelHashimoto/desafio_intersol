@@ -1,0 +1,5 @@
+<% unless resource.errors.any? %>
+  $("#user_show").html("<%= escape_javascript(render 'users/show') %>")
+<% else %>
+  $("#edit_user_modal").html("<%= escape_javascript(render 'edit') %>")
+<% end %>

@@ -6,8 +6,11 @@
 
 # Ignore bundler config.
 /.bundle
+/coverage
 
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+.byebug_history
+launch.json

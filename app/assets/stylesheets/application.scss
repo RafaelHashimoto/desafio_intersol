@@ -11,6 +11,13 @@
  * file per style scope.
  *
  *= require css/materialize.scss
+ *= require toastr_rails
  *= require_tree .
  *= require_self
  */
+
+ @import 'variables.scss';
+
+ body {
+   background-color:$background-color;
+ }
