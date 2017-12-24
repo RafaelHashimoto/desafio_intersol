@@ -1,0 +1,9 @@
+- @accounts.each do |account|
+  .card-container-item
+    = link_to users_account_path(account) do
+      .card.content-card style="width:auto;"
+        .center
+          = account.agency.bank_name +  " - " +account.agency.number
+        .divider
+        p Agência: #{account.number}
+  

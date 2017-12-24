@@ -1,11 +1,11 @@
 .sidenav
 	.user-data
 		. MyBank
-	.divider
-	=link_to "Agências"
-	.divider
-	=link_to "Contas"
-	.divider
-	=link_to "Movimentações"
-	.divider	
-	= link_to "#", "", confirm:"Teste"
+	= tabs_tag open_tabs:{class:"tabs-style"}, active_class: "active" do |tab|	
+		.divider
+		=tab.agencies    "Agências",         users_agencies_path() 
+		.divider
+		=link_to "Contas"
+		.divider
+		=link_to "Movimentações"
+		.divider	
