@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    model:
+      agencies:
+        one: Agência
+        other: Agências
+    attributes:
+      agency:
+          bank_name: Nome do banco
+          number: Número da agência
+          state: Estado
+          city: Cidade
+          street_name: Rua
+          building_number: Número
