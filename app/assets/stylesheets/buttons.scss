@@ -1,0 +1,39 @@
+@import "variables";
+.btn-container{
+  display: flex;
+  justify-content:space-between;
+}
+.btn-full-width{
+  margin-top:10px;
+  width:100%;
+}
+.btn{
+  min-width:100px;
+}
+.green-btn{
+  background-color: $btn-confirm;
+  color:white;
+}
+.green-btn:hover,
+.green-btn:focus{
+  color: white;
+  background-color:$btn-confirm-hover;
+}
+.blue-btn{
+  background-color:$primary-color;
+  color:white;
+}
+.blue-btn:focus,
+.blue-btn:hover{
+  background-color:$secondary-color;
+  color:$primary-color;
+}
+.orange-btn{
+  background-color:$btn-cancel;
+  color:white;
+}
+.orange-btn:focus,
+.orange-btn:hover{
+  background-color: $btn-cancel-hover;
+  color:white;
+}

@@ -4,15 +4,15 @@
       h2.center Entrar
 
       = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-        - flash.each do |key, value|
-          .flash.center #{value}
         .field
-          = f.label :email, class:"form-label"
-          = f.email_field :email, class:"form-field", autofocus: true
-          
+          = form_group_for f, :email, label: false  do
+            = f.label :email, class:"form-label"
+            = f.email_field :email, class:"form-field", autofocus: true
+        
         .field
-          = f.label :password, "Senha", class:"form-label"
-          = f.password_field :password, autocomplete: :off, class:"form-field"
+          = form_group_for f, :password, label: false  do          
+            = f.label :password, "Senha", class:"form-label"
+            = f.password_field :password, autocomplete: :off, class:"form-field"
 
         - if devise_mapping.rememberable? 
           .field.remember-me
@@ -20,7 +20,7 @@
             = f.label :remember_me, "Lembrar-me"
 
         .form-actions
-          = f.submit "Entrar", class:"btn form-btn form-btn-center", id:"submit-button"
+          = f.submit "Entrar",class:"btn green-btn green-btn-center btn-full-width", id:"submit-button"
         
         .form-links
           = render "users/shared/links"

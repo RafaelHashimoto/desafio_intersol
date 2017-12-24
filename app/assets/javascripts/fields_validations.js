@@ -1,16 +1,32 @@
-function validateEmail(id, submit_button_id){
+function validateEmail(id){
   var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!regex.test($(id).val())) {
-    set_error_class(id);
+  if (!$(id).val()){
+    set_error_class(id, "Campo obrigatório");
+    return false;
+  } else if (!regex.test($(id).val())) {
+    set_error_class(id, "Formato inválido");
     return false;
   } else {
     remove_error_class(id);
     return true
   }
 }
-function validatePassword(id, submit_button_id){
+function validateTextOnly(id){
+  var regex = /(^[a-z ]+$)/i;
+  if (!$(id).val()){
+    set_error_class(id, "Campo obrigatório");
+    return false;
+  } else if (!regex.test($(id).val())) {
+    set_error_class(id, "Formato inválido");
+    return false;
+  } else {
+    remove_error_class(id);
+    return true
+  }
+}
+function validatePassword(id){
   if ($(id).val() == null || $(id).val().length < 6) {
-    set_error_class(id);
+    set_error_class(id, "Mínimo de 6 caractéres");
     return false;
   } else {
     remove_error_class(id);
@@ -18,30 +34,26 @@ function validatePassword(id, submit_button_id){
   }
 }
 
-function validate_password_confirmation(id, password_id){
+function validatePasswordConfirmation(id, password_id){
   if ($(id).val() == null || $(id).val().length < 6) {
-    set_error_class(id);
-    $("#password_confirmation_error").text("Campo inválido");
+    set_error_class(id, "Mínimo de 6 caractéres");
+    return false;
   } else if ($(id).val() != $(password_id).val()){
-    set_error_class(id);
-    $("#password_confirmation_error").text("As senhas devem ser iguais");
+    set_error_class(id, "As senhas devem ser iguais");
+    return false;
   } else {
-    $(id).parent().removeClass("field_with_errors");
-    $(id).parent().addClass("valid-field");
-    
-    document.getElementById("button").disabled = false;
-    
-    $("#form-button").removeClass("form-button-disable");
-    $("#form-button").addClass("form-button");
-    $("#password_confirmation_error").text("");
+    remove_error_class(id);
+    return true;
   }
 }
 
-function set_error_class(id){
+function set_error_class(id, message){
   $(id).parent().removeClass("valid-field");
   $(id).parent().addClass("field_with_errors");
+  $(id).parent().find(".help-block").text(message)
 }
 function remove_error_class(id){
   $(id).parent().removeClass("field_with_errors");
   $(id).parent().addClass("valid-field");
+  $(id).parent().find(".help-block").text("")
 }

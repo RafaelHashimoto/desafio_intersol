@@ -1,0 +1,11 @@
+h4.title Perfil
+.card.user-card
+  h5.card-title Dados
+  .divider
+  .card-data
+    = render "show"
+  .col.s12.m6.offset-m3.btn-container
+    = link_to "Editar Conta", edit_user_registration_path(), remote: true ,class:"btn blue-btn"
+    = link_to "Cancelar Conta", user_registration_path(), method: :delete, data:{confirm: "Confirma o cancelamento da conta?"}, class:"btn orange-btn"
+
+.modal id="edit_user_modal"

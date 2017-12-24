@@ -1,0 +1,15 @@
+nav
+  div class="nav-wrapper"
+    ul class="right hide-on-small-only"
+      li 
+        a.dropdown-button data-activates="profile-dropdown" style="display:block;" href="#!" 
+          | #{current_user.first_name + " " + current_user.last_name}
+          i.material-icons style="float: right;" &#xE313;
+
+ul id="profile-dropdown" class="dropdown-content"
+  li class="divider"
+  li
+    =link_to "Perfil"
+  li class="divider"
+  li
+    = link_to "Sair", destroy_user_session_path(), method: :delete 
