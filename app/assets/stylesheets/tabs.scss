@@ -1,0 +1,40 @@
+@import "variables";
+.tab-style{
+  background-color: white;
+  border-radius: 5px;
+}
+.tabs{
+  width:100%;
+  margin-bottom:20px;
+  .tab{
+    padding-right:15px;
+  }
+  a {    
+    padding:0 0 !important;
+    font-weight: 700;
+  }
+  a:hover {
+    color:$primary-color !important;
+  }
+  a.selected.active  {
+    color: $input-color;
+  }
+  .indicator{
+    height:4px;
+    background-color: $primary-color;
+  }
+}
+
+.tabs .tab a{
+  color:#b2b2b2;
+}
+
+.tab-divider{
+  padding: 0px 15px;
+  margin-bottom:1px;
+  position: absolute;
+  height:2px;
+  width:100%;
+  bottom: 0;
+  will-change: left, right;
+}

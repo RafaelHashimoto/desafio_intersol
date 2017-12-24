@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   $('select').material_select();
   $('.modal').modal();
   $(".button-collapse").sideNav();
-
+  $('ul.tabs').tabs();
   $('.dropdown-button').dropdown({
     hover: false, // Activate on hover
     gutter: 0, // Spacing from edge
