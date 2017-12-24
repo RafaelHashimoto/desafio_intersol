@@ -13,3 +13,4 @@
 !/log/.keep
 /tmp
 .byebug_history
+launch.json
