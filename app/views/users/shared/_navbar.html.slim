@@ -9,7 +9,7 @@ nav
 ul id="profile-dropdown" class="dropdown-content"
   li class="divider"
   li
-    =link_to "Perfil"
+    =link_to "Perfil", authenticated_root_path()
   li class="divider"
   li
     = link_to "Sair", destroy_user_session_path(), method: :delete 

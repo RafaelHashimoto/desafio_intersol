@@ -1,0 +1,19 @@
+.row
+  .col.s12.m6
+    h5 Banco:    #{@agency.bank_name}
+  .col.s12.m6
+    h5 Agência:  #{@agency.number}
+.row  
+  .col.s12
+    h5 Endereço
+    .divider
+  .col.s12.m6
+    p Estado:   #{@agency.state}
+    p Cidade:   #{@agency.city}
+  .col.s12.m6
+    p Rua:      #{@agency.street_name}
+    p Número:   #{@agency.building_number}
+.row
+  .col.s12.m6.offset-m3.btn-container
+    = link_to "Editar", edit_users_agency_path(@agency), class:"btn blue-btn", remote: true
+    = link_to "Excluir", users_agency_path(@agency), method: :delete, data:{confirm: "Confirma o cancelamento da agência?"}, remote: true ,class:"btn orange-btn"

@@ -1,0 +1,10 @@
+- @agencies.each do |agency|
+  .card-container-item
+    = link_to users_agency_path(agency) do
+      .card.content-card style="width:auto;"
+        .center
+          = agency.bank_name
+        .divider
+        p Agência: #{agency.number}
+        p Endereço: #{agency.street_name}, #{agency.building_number}
+  

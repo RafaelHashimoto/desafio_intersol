@@ -1,0 +1,17 @@
+h4.title Agências
+.card.user-card
+  .tab-style
+    ul.tabs
+      li.tab
+        a.selected id="first-tab" href="#agency-data" Dados
+      li.tab
+        a id="second-tab" href="#agency-accounts" Contas
+      .divider.tab-divider
+  . id="agency-data"
+    .card-data id="agency-show"
+      = render "show"
+  . id="agency-accounts"
+    .card-data
+      = render "accounts"      
+
+.modal id="edit-agency-modal"

@@ -1,0 +1,32 @@
+= form_for(@agency, url: path, method: method, remote: true) do |f|
+  .fields-container
+    .field.field-item
+      = form_group_for f, :bank_name, label: false  do
+        = f.label :bank_name, class:"form-label"
+        = f.text_field :bank_name, autofocus: true, class:"form-field"
+    .field.field-item
+      = form_group_for f, :number, label: false  do
+        = f.label :number, class:"form-label"
+        = f.text_field :number, autofocus: true, class:"form-field"
+  h5 style="margin-top:0px;" Endereço 
+  .divider style="margin-bottom:10px;"" 
+  .fields-container
+    .field.field-item
+      = form_group_for f, :state, label: false  do
+        = f.label :state, class:"form-label"
+        = f.text_field :state, autofocus: true, class:"form-field"
+    .field.field-item
+      = form_group_for f, :city, label: false  do
+        = f.label :city, class:"form-label"
+        = f.text_field :city, autocomplete: "off", class:"form-field"
+  .fields-container
+    .field.field-item
+      = form_group_for f, :street_name, label: false  do
+        = f.label :street_name, class:"form-label"
+        = f.text_field :street_name, autocomplete: "off", class:"form-field"
+    .field.field-item
+      = form_group_for f, :building_number, label: false  do
+        = f.label :building_number, class:"form-label"
+        = f.text_field :building_number, autocomplete: "off", class:"form-field"        
+  .actions
+    = f.submit "SALVAR",class:"btn green-btn green-btn-center btn-full-width", id:"agency-submit-button"
