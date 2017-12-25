@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    model:
+      accounts:
+        one: Conta
+        other: Contas
+    attributes:
+      account:
+        number: Número
+        limit: Limite
+        user_id: Usuário
+        agency_id: Agência

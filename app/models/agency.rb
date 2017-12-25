@@ -15,4 +15,8 @@ class Agency < ApplicationRecord
   validates :building_number, presence: true
   
   has_many :accounts
+
+  def to_s
+    bank_name + " - Ag: " + number
+  end
 end
