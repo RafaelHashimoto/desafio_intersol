@@ -1,0 +1,9 @@
+h4.title Contas
+.card.user-card
+  h5.card-title Dados
+  .divider
+  .card-data
+    = link_to "Criar Conta", new_users_account_path(), class:"btn blue-btn", remote: true
+    .card-container id="accounts"
+        = render 'index', accounts: @accounts
+.modal id="new-account-modal"

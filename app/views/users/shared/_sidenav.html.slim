@@ -3,9 +3,9 @@
 		. MyBank
 	= tabs_tag open_tabs:{class:"tabs-style"}, active_class: "active" do |tab|	
 		.divider
-		=tab.agencies    "Agências",         users_agencies_path() 
+		=tab.agencies			"Agências", users_agencies_path() 
 		.divider
-		=link_to "Contas"
+		=tab.accounts			"Contas",   users_accounts_path()
 		.divider
 		=link_to "Movimentações"
 		.divider	

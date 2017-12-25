@@ -1,0 +1,9 @@
+<% if @account.errors.any? %>
+  toastr.error("Erro");
+  $("<%=id%>").html("<%= escape_javascript(render action) %>")
+  $('select').material_select();  
+<% else %>
+  toastr.success("Sucesso");
+  $("<%=partial_id%>").html("<%= escape_javascript(render partial) %>")
+  $("<%=id%>").modal("close")
+<% end %>
