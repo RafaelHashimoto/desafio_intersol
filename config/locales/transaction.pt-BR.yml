@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    model:
+      transactions:
+        one: Movimentação
+        other: Movimentações
+    attributes:
+      transaction:
+          transaction_types: 
+            deposit:        Depósito
+            withdrawal:     Saque
+            chargebacks:    Estorno
+            transfer:       Transferência 
+          account:          Conta
+          user:             Usuário
+          amount_in_cents:  Valor
+          date:             Data da movimentação 
