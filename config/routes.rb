@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   namespace :users do
     resources :agencies
     resources :accounts
+    resources :transactions do 
+      get 'chargeback', on: :member
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
