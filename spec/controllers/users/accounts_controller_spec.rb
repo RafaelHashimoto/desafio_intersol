@@ -63,7 +63,7 @@ RSpec.describe Users::AccountsController, type: :controller do
       end
 
       it "returns created object" do 
-        expect(assigns[:account].bank_name).to eq("Bradesco")
+        expect(assigns[:account].number).to eq("11111")
       end
     end
 

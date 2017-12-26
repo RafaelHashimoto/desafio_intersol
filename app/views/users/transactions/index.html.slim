@@ -1,0 +1,9 @@
+h4.title Movimentações
+.card.user-card
+  h5.card-title Dados
+  .divider
+  .card-data
+    = link_to "Criar Movimentação", new_users_transaction_path(), class:"btn blue-btn", remote: true
+    .card-container id="transactions"
+        = render 'index', transactions: @transactions
+.modal id="new-transaction-modal"
