@@ -1,0 +1,12 @@
+h4.title Contas
+.card.user-card
+  .tab-style
+    ul.tabs
+      li.tab
+        a.selected id="first-tab" href="#transaction-data" Dados
+      .divider.tab-divider
+  . id="transaction-data"
+    .card-data id="transaction-show"
+      = render "show"
+
+.modal id="edit-transaction-modal"

@@ -1,0 +1,11 @@
+- @transactions.each do |transaction|
+  .card-container-item
+    = link_to users_transaction_path(transaction) do
+      .card.content-card
+        .center
+          = transaction.account.agency.bank_name
+          = "ag: " + transaction.account.agency.number + " conta: " + transaction.account
+        .divider
+        p Tipo:  #{transaction.transaction_type}
+        p Valor: #{transaction.value_in_cents}
+  

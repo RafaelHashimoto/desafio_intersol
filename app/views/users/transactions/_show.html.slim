@@ -1,0 +1,11 @@
+.row
+  .col.s12.m4
+    h5 Banco:    #{@transaction.account.agency.bank_name}
+  .col.s12.m4
+    h5 Agência:  #{@transaction.account.agency.number}
+  .col.s12.m4
+    h5 Conta:  #{@transaction.account.number}
+.row
+  .col.s12.m6.offset-m3.btn-container
+    = link_to "Editar", edit_users_transaction_path(@transaction), class:"btn blue-btn", remote: true
+    = link_to "Estornar", chargeback_users_transaction_path(@transaction), class:"btn blue-btn", remote: true
