@@ -1,18 +1,29 @@
-= form_for(@account, url: path, method: method, remote: true) do |f|
+= form_for(@transaction, url: path, method: method, remote: true) do |f|
+  .field.field-select
+    = form_group_for f, :transaction_type, label: false  do
+      = f.label :transaction_type, class:"form-label"
+      = f.select :transaction_type, options_for_transaction_type(), include_blank: true, class:"form-field", id:"origin_type"
+  .field.field-select id="origin-account-field"
+    = form_group_for f, :origin_account_id, label: false  do
+      = f.label :origin_account_id, class:"form-label"
+      -byebug
+      = f.select :origin_account_id, 
+          options_from_collection_for_select(my_accounts, "id", "to_s"), 
+          include_blank: true, class:"form-field", id:"origin_account_id"
+  .field.field-select id="destiny-account-field"
+    = form_group_for f, :destination_account_id, label: false  do
+      = f.label :destination_account_id, class:"form-label"
+      = f.select :destination_account_id, 
+          options_from_collection_for_select(accounts, "id", "to_s"),
+          include_blank: true, class:"form-field", id:"destination_account_id"
   .fields-container
     .field.field-item
-      = form_group_for f, :number, label: false  do
-        = f.label :number, class:"form-label"
-        = f.text_field :number, autofocus: true, class:"form-field"  
+      = form_group_for f, :amount_in_cents, label: false  do
+        = f.label :amount_in_cents, class:"form-label"
+        = f.text_field :amount_in_cents, autofocus: true, class:"form-field"  
     .field.field-item
-      = form_group_for f, :limit, label: false  do
-        = f.label :limit, class:"form-label"
-        = f.text_field :limit, class:"form-field"
-  h5 style="margin-top:0px;" Agência 
-  .divider style="margin-bottom:10px;"" 
-  .field.field-item
-    = form_group_for f, :agency_id, label: false  do
-      = f.label :agency_id, class:"form-label"
-      = f.select :agency_id, options_from_collection_for_select(Agency.all, "id", "to_s"), include_blank: true, class:"form-field"
+      = form_group_for f, :date, label: false  do
+        = f.label :date, class:"form-label"
+        = f.text_field :date, class:"form-field datepicker"
   .actions
-    = f.submit "SALVAR",class:"btn green-btn green-btn-center btn-full-width", id:"agency-submit-button"
+    = f.submit "SALVAR",class:"btn green-btn green-btn-center btn-full-width", id:"submit-button"

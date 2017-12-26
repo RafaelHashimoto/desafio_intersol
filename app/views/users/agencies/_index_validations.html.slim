@@ -1,0 +1,6 @@
+= link_to "Criar Agência", new_users_agency_path(), class:"btn blue-btn", remote: true
+- if agencies?
+  .card-container
+      = render 'index', agencies: @agencies
+- else 
+ h5.center Não há agências cadastradas

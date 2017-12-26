@@ -1,0 +1,9 @@
+- if accounts?
+  = link_to "Criar Movimentação", new_users_transaction_path(), class:"btn blue-btn", remote: true
+  .card-container 
+    - if transactions?
+      = render 'index', transactions: @transactions
+    - else 
+      h5.center Não há movimentações cadastradas
+- else
+  h5.center Crie uma conta para poder realizar movimentações

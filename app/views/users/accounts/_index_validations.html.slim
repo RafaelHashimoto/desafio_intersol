@@ -1,0 +1,9 @@
+- if agencies?
+  = link_to "Criar Conta", new_users_account_path(), class:"btn blue-btn", remote: true
+  .card-container 
+    - if accounts?
+      = render 'index', accounts: @accounts
+    - else 
+      h5.center Não há contas cadastradas
+- else
+  h5.center Crie uma agência para poder realizar movimentações

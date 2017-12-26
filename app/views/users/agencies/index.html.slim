@@ -2,9 +2,7 @@ h4.title Agências
 .card.user-card
   h5.card-title Dados
   .divider
-  .card-data
-    = link_to "Criar Agência", new_users_agency_path(), class:"btn blue-btn", remote: true
-    .card-container id="agencies"
-        = render 'index', agencies: @agencies
+  .card-data id="agencies"
+    = render "index_validations"
 .modal id="new-agency-modal"
 .modal id="edit_agency_modal"
