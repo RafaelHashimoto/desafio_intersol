@@ -12,7 +12,7 @@ class Account < ApplicationRecord
   belongs_to :user
   belongs_to :agency
 
-  has_many :transactions
-
+  has_many :destiny_transactions, class_name: "Transaction"
+  has_many :origin_transactions,  class_name: "Transaction"
 
 end
