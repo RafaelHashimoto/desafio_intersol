@@ -13,6 +13,10 @@ RSpec.describe Account, type: :model do
       expect(account).to be_valid
     end
 
+    it "returns bank name and agency number and account number" do
+      expect(account.to_s).to eq("Bradesco - Ag: 11111 - Conta: 11111")
+    end
+
   end
 
   context "Failure" do

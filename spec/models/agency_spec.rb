@@ -9,6 +9,10 @@ RSpec.describe Agency, type: :model do
       expect(agency).to be_valid
     end
 
+    it "returns bank name and agency number" do
+      expect(agency.to_s).to eq(agency.bank_name + " - Ag: " + agency.number)
+    end
+
   end
 
   context "Failure" do
