@@ -54,7 +54,7 @@ Things you may want to cover:
     no sistema. Na aba de movimentações estarão listadas todas as movimentações vinculadas a conta
     junto com o saldo
 
-    *A exclusão da conta só será possível se não houver movimentação vincuadas a ela  
+    *A exclusão da conta só será possível se não houver movimentações vincuadas a ela  
 
   - Passo 4 - Cadastro de Movimentação
 
@@ -71,5 +71,3 @@ Things you may want to cover:
 
     *Não é possível excluir uma movimentação, apenas extorná-la  
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
