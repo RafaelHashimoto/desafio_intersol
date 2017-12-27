@@ -72,7 +72,7 @@ RSpec.describe Users::TransactionsController, type: :controller do
       end
 
       it "returns created object" do 
-        expect(assigns[:transaction].amount_in_cents).to eq("100000")
+        expect(assigns[:transaction].amount_in_cents).to eq("1000")
       end
     end
 
