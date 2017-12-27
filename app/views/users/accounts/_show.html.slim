@@ -1,11 +1,15 @@
 .row
-  .col.s12.m4
+  .col.s12.m6
     h5 Banco:    #{@account.agency.bank_name}
-  .col.s12.m4
+  .col.s12.m6
     h5 Agência:  #{@account.agency.number}
-  .col.s12.m4
+  .col.s12.m6
     h5 Conta:  #{@account.number}
+  .col.s12.m6
+    h5 Limite:  #{number_to_currency((@account.limit.to_f/10), unit: "R$")}
 .row
-  .col.s12.m6.offset-m3.btn-container
+  .col.s12.m6.btn-container
     = link_to "Editar", edit_users_account_path(@account), class:"btn blue-btn", remote: true
-    = link_to "Excluir", users_account_path(@account), method: :delete, data:{confirm: "Confirma a exclusão da conta?"}, remote: true ,class:"btn orange-btn"
+    - unless @account.origin_transactions.any? || @account.destination_transactions.any?
+      = link_to "Excluir", users_account_path(@account), method: :delete, data:{confirm: "Confirma a exclusão da conta?"}, remote: true ,class:"btn orange-btn"
+p.center Só será possível excuir uma conta se não houver transações vinculadas a ela

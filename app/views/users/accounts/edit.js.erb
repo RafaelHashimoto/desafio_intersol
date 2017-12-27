@@ -1,3 +1,8 @@
-$("#edit-account-modal").html("<%= escape_javascript(render 'edit') %>")
-$("#edit-account-modal").modal("open")
+$("#account-form-modal").html("<%= escape_javascript(render 'edit') %>")
+$("#account-form-modal").modal("open")
 $('select').material_select();  
+$('#account_limit').priceFormat({
+  prefix: 'R$ ',
+  centsSeparator: ',',
+  thousandsSeparator: '.'
+});

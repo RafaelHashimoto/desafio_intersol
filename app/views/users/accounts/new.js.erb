@@ -1,3 +1,17 @@
-$("#new-account-modal").html("<%= escape_javascript(render 'new') %>")
+$("#account-form-modal").modal({
+  ready: function(modal, trigger) {
+    $("#submit-button").on('click', function(e){
+      dataAdjustment("#account_limit");
+      $("#submit-button").submit();
+    });
+  }
+});
+
+$("#account-form-modal").html("<%= escape_javascript(render 'new') %>")
 $('select').material_select();
-$("#new-account-modal").modal("open")
+$("#account-form-modal").modal("open")
+$('#account_limit').priceFormat({
+  prefix: 'R$ ',
+  centsSeparator: ',',
+  thousandsSeparator: '.'
+});

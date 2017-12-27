@@ -9,9 +9,21 @@ h4.title Contas
       .divider.tab-divider
   . id="account-data"
     .card-data id="account-show"
+      .row
+        .col.s12
+          - if @amount > 0  
+            h5.amount-green Saldo #{number_to_currency((@amount.to_f/100), unit: "R$") }   
+          - else
+            h5.amount-orange Saldo #{number_to_currency((@amount.to_f/100), unit: "R$") }   
       = render "show"
   . id="account-transactions"
-    .card-data
-      = render "transactions"      
+    h5 Extrato
+    - if @amount > 0  
+      h5.amount-green Saldo #{number_to_currency((@amount.to_f/100), unit: "R$") }   
+    - else
+      h5.amount-orange Saldo #{number_to_currency((@amount.to_f/100), unit: "R$") }   
+    .divider
+    = render "transactions_resume"
+      
 
-.modal id="edit-account-modal"
+.modal id="account-form-modal"

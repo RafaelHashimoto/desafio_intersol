@@ -1,5 +1,5 @@
 <% if @transaction.errors.any? %>
-  toastr.error("Erro");
+  toastr.error("Erro" + " " + <%=@transaction.errors.first[1]%>);
   $("<%=id%>").html("<%= escape_javascript(render action) %>")
   $('select').material_select();  
 <% else %>

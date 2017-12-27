@@ -3,9 +3,18 @@
     = link_to users_transaction_path(transaction) do
       .card.content-card
         .center
-          = transaction.account.agency.bank_name
-          = "ag: " + transaction.account.agency.number + " conta: " + transaction.account
+          = transaction.t_enum("transaction_type")
         .divider
-        p Tipo:  #{transaction.transaction_type}
-        p Valor: #{transaction.value_in_cents}
-  
+        p Valor: #{number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") }
+        - if transaction.deposit?
+          =  "Para -> ag: " + transaction.destination_account.agency.number + " -  conta: " + transaction.destination_account.number
+        - if transaction.withdrawal?
+          =  "De -> ag: " + transaction.origin_account.agency.number + " -  conta: " + transaction.origin_account.number
+        - if transaction.transfer?        
+          =  "De -> ag: " + transaction.origin_account.agency.number + " -  conta: " + transaction.origin_account.number
+          =  "Para -> ag: " + transaction.destination_account.agency.number + " -  conta: " + transaction.destination_account.number
+        - if transaction.chargeback?
+          - if transaction.origin_account        
+            =  "De -> ag: " + transaction.origin_account.agency.number + " -  conta: " + transaction.origin_account.number
+          - if transaction.destination_account
+            =  "Para -> ag: " + transaction.destination_account.agency.number + " -  conta: " + transaction.destination_account.number

@@ -1,4 +1,4 @@
-h4.title Contas
+h4.title Movimentações
 .card.user-card
   .tab-style
     ul.tabs
@@ -8,5 +8,8 @@ h4.title Contas
   . id="transaction-data"
     .card-data id="transaction-show"
       = render "show"
-
+  
+  .col.s12.m6.offset-m3.btn-container
+    = link_to "Editar", edit_users_transaction_path(@transaction), class:"btn blue-btn", remote: true
+    = link_to "Estornar", chargeback_users_transaction_path(@transaction), class:"btn orange-btn", remote: true
 .modal id="transaction-form-modal"

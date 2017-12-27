@@ -1,11 +1,20 @@
 .row
-  .col.s12.m4
-    h5 Banco:    #{@transaction.account.agency.bank_name}
-  .col.s12.m4
-    h5 Agência:  #{@transaction.account.agency.number}
-  .col.s12.m4
-    h5 Conta:  #{@transaction.account.number}
+  .col.s12
+    h5 = @transaction.t_enum("transaction_type")
+.divider
 .row
-  .col.s12.m6.offset-m3.btn-container
-    = link_to "Editar", edit_users_transaction_path(@transaction), class:"btn blue-btn", remote: true
-    = link_to "Estornar", chargeback_users_transaction_path(@transaction), class:"btn blue-btn", remote: true
+  .col.s12
+    - if @transaction.deposit?
+      =  "Para -> ag: " + @transaction.try(:destination_account).agency.number + " -  conta: " + @transaction.destination_account.number
+    - if @transaction.withdrawal?
+      =  "De -> ag: " + @transaction.try(:origin_account).agency.number + " -  conta: " + @transaction.origin_account.number
+    - if @transaction.transfer?        
+      =  "De -> ag: " + @transaction.try(:origin_account).agency.number + " -  conta: " + @transaction.origin_account.number
+      =  "Para -> ag: " + @transaction.try(:destination_account).agency.number + " -  conta: " + @transaction.destination_account.number
+    - if @transaction.chargeback?
+      - if @transaction.origin_account        
+        =  "De -> ag: " + vtransaction.origin_account.agency.number + " -  conta: " + @transaction.origin_account.number
+      - if @transaction.destination_account
+        =  "Para -> ag: " + @transaction.destination_account.agency.number + " -  conta: " + @transaction.destination_account.number
+    p Valor: #{number_to_currency((@transaction.amount_in_cents.to_f/100), unit: "R$") }  
+  

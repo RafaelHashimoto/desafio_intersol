@@ -13,6 +13,6 @@
   .field.field-item
     = form_group_for f, :agency_id, label: false  do
       = f.label :agency_id, class:"form-label"
-      = f.select :agency_id, options_from_collection_for_select(Agency.all, "id", "to_s"), include_blank: true, class:"form-field"
+      = f.select :agency_id, options_from_collection_for_select(Agency.all, "id", "to_s", selected: @account.agency_id), include_blank: true, class:"form-field"
   .actions
-    = f.submit "SALVAR",class:"btn green-btn green-btn-center btn-full-width", id:"agency-submit-button"
+    = f.submit "SALVAR",class:"btn green-btn green-btn-center btn-full-width", id:"submit-button"

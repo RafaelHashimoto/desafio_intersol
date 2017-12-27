@@ -5,5 +5,5 @@
         .center
           = account.agency.bank_name +  " - " +account.agency.number
         .divider
-        p Agência: #{account.number}
-  
+        p Conta: #{account.number}
+        p Limite:  #{number_to_currency((account.limit.to_f/10), unit: "R$")}
