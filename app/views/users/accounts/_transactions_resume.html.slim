@@ -7,7 +7,7 @@ table
   tbody
     - @account_transactions.each do |transaction|
       tr 
-        td #{transaction.t_enum("transaction_type")}
+        td #{ transaction.chargeback? ?  chargeback_type(transaction) : transaction.t_enum("transaction_type")}
         td #{transaction.date}
         td #{transaction_amount(transaction, @account)}
   

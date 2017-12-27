@@ -31,10 +31,20 @@ module ApplicationHelper
       " - " + number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") 
     elsif transaction.chargeback?
       if (transaction.try(:origin_account) == account) 
-        " + " + number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") 
+        number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") 
       elsif (transaction.try(:destination_account) == account) 
-        " - " + number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") 
+        number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") 
       end
+    end
+  end
+
+  def chargeback_type(transaction)
+    if transaction.origin_account && transaction.destination_account
+      "Est. de Transf. de: " + transaction.origin_account.to_s
+    elsif transaction.origin_account && transaction.destination_account == nil
+      "Estorno de Saque"
+    elsif transaction.origin_account == nil && transaction.destination_account
+      "Estorno de depósito"
     end
   end
   

@@ -3,7 +3,10 @@
     = link_to users_transaction_path(transaction) do
       .card.content-card
         .center
-          = transaction.t_enum("transaction_type")
+          - if transaction.chargeback?
+            = chargeback_type(transaction)
+          - else
+            = transaction.t_enum("transaction_type")
         .divider
         p Valor: #{number_to_currency((transaction.amount_in_cents.to_f/100), unit: "R$") }
         - if transaction.deposit?

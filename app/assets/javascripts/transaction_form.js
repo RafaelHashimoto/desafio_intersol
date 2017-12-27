@@ -2,8 +2,6 @@ $(document).on('turbolinks:load', function() {
   //Resource to load specific view javascript 
   $("#transaction-form-modal").modal({
     ready: function(modal, trigger) {
-      $("#origin-account-field").hide();
-      $("#destination-account-field").hide();
       $('#transaction-type-field :input').on('change', function() {
         var field = $('#transaction-type-field :input');
         if (field.val() == "deposit"){

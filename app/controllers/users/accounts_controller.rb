@@ -63,12 +63,6 @@ module Users
          amount += transaction.amount_in_cents.to_i  
         elsif transaction.withdrawal? || (transaction.transfer? && transaction.origin_account == @account) 
           amount -= transaction.amount_in_cents.to_i  
-        elsif transaction.chargeback?
-          if (transaction.try(:origin_account) == @account) 
-            amount += transaction.amount_in_cents.to_i  
-          elsif (transaction.try(:destination_account) == @account) 
-            amount -= transaction.amount_in_cents.to_i  
-          end
         end
       end
       return amount
