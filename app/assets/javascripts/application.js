@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require jquery.priceformat.min.js
 //= require js/bin/materialize.min.js
 //= require toastr_rails
 //= require turbolinks
