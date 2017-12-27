@@ -12,6 +12,7 @@ module Users
 
     def new
       @transaction = Transaction.new
+
     end
 
     def create
@@ -25,7 +26,6 @@ module Users
     end
 
     def show
-      #@transactions = @transaction.accounts.where(user_id: current_user)
     end 
 
     def edit
@@ -38,6 +38,7 @@ module Users
     def chargeback
       @transaction.transaction_type = "chargeback"
       @transaction.save
+      flash[:success] = "Transação estornada com sucesso"
     end
 
     private

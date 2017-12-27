@@ -25,7 +25,13 @@ module Users
     end
 
     def show
-      #@accounts = @account.transactions.where(user_id: current_user)
+      @amount = 0
+      @account_transactions = Transaction.where(
+        origin_account_id: @account.id).or(Transaction.where(
+          destination_account_id: @account.id
+        )
+      )
+      @amount = set_amount(@amount, @account_transactions)
     end 
 
     def edit
@@ -49,6 +55,23 @@ module Users
       params.require(:account).permit(
         :number, :limit, :agency_id 
       )
+    end
+
+    def set_amount(amount, transactions)
+      transactions.each do |transaction|
+        if transaction.deposit? || (transaction.transfer? && transaction.destination_account == @account) 
+         amount += transaction.amount_in_cents.to_i  
+        elsif transaction.withdrawal? || (transaction.transfer? && transaction.origin_account == @account) 
+          amount -= transaction.amount_in_cents.to_i  
+        elsif transaction.chargeback?
+          if (transaction.try(:origin_account) == @account) 
+            amount += transaction.amount_in_cents.to_i  
+          elsif (transaction.try(:destination_account) == @account) 
+            amount -= transaction.amount_in_cents.to_i  
+          end
+        end
+      end
+      return amount
     end
   end
 end
