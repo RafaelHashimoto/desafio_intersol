@@ -6,12 +6,15 @@ pt-BR:
         other: Movimentações
     attributes:
       transaction:
-          transaction_types: 
-            deposit:        Depósito
-            withdrawal:     Saque
-            chargebacks:    Estorno
-            transfer:       Transferência 
-          account:          Conta
+          transaction_type: Tipo de Movimentação 
+          origin_account_id:   Conta de origem
+          destination_account_id:   Conta de destino
           user:             Usuário
           amount_in_cents:  Valor
           date:             Data da movimentação 
+          enums:
+            transaction_type: 
+              deposit:        Depósito
+              withdrawal:     Saque
+              chargeback:     Estorno
+              transfer:       Transferência           
