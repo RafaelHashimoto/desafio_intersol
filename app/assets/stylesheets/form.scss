@@ -94,3 +94,13 @@ input {
   border:1px solid $border-color !important;
   border-radius:5px !important;
 }
+.field-select{
+  padding-bottom: 10px;
+}
+.picker__holder{
+  overflow: visible;
+  height:auto;
+  width:auto;
+  max-width:700px;
+  background: transparent !important ;
+}
